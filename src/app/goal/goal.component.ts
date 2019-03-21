@@ -65,5 +65,7 @@ export class GoalComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 }
