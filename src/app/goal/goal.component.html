@@ -1,0 +1,28 @@
+<h1 style="color:blue;padding-left:500px;">My Goals</h1>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="row" style="font-size:15px;">
+        <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+      </div>
+    </div>
+    <div class="col-sm-7" style="font-size:15px;">
+      <div class="row" *ngFor="let goal of goals;let i = 'index'">
+        <div class="">
+          <h5 id="{{i}}" appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h5>
+          <button class="btn btn-primary" (click)='toogleDetails(i)'>Toogle Details</button>
+        </div>
+        <div class="" *ngIf="goal.showDescription">
+          <app-goal-details [goal]='goal' (isComplete)='deleteGoal($event,i)'></app-goal-details>
+        </div>
+      </div>
+    </div>
+    <p *ngIf='goals.length > 5'>You have too many goals</p>
+    
+
+
+
+
+  </div>
+</div>

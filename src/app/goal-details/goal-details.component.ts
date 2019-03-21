@@ -1,0 +1,44 @@
+// import { Component, OnInit,Input, Output, Ev } from '@angular/core';
+// import { Goal } from '../goal';
+
+// @Component({
+//   selector: 'app-goal-details',
+//   templateUrl: './goal-details.component.html',
+//   styleUrls: ['./goal-details.component.scss']
+// })
+// export class GoalDetailsComponent implements OnInit {
+
+//   @Input() goal: Goal;
+//   @Output() isComplete = new EventEmitter<boolean>();
+
+//   goalComplete(complete: boolean) {
+//     this.isComplete.emit(complete);
+//   }
+//   constructor() { }
+
+//   ngOnInit() {
+//   }
+
+// }
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Goal } from '../goal'
+
+@Component({
+  selector: 'app-goal-details',
+  templateUrl: './goal-details.component.html',
+  styleUrls: ['./goal-details.component.scss']
+})
+export class GoalDetailsComponent implements OnInit {
+
+  @Input() goal: Goal;
+  @Output() isComplete = new EventEmitter<boolean>();
+
+  goalDelete(complete: boolean) {
+    this.isComplete.emit(complete);
+  }
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
